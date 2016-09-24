@@ -47,7 +47,7 @@
 								</div>
 								<div class="section-content">
 									<div class="form-master">
-										<form method="POST" action="servletControle?cmd=salvar" enctype="multipart/form-data" >
+										<form method="POST" action="ServletControle?cmd=salvar" enctype="multipart/form-data" >
 									        <label class="label-name">Arquivo:</label>
 									        <input type="file" name="file" id="file" /> <br/>
 									        <input type="submit" value="Upload" name="upload" id="upload" class="btn-confirm"/>
@@ -62,7 +62,7 @@
 								</div>
 								<div class="section-content">
 									<div class="form-master">
-										<form method="POST" action="servletControle?cmd=pesquisar" enctype="multipart/form-data" >
+										<form method="POST" action="ServletControle?cmd=pesquisar" enctype="multipart/form-data" >
 									       
 									        <input type="text" name="text" id="pesquisa-parametro" /> <br/>
 									        <input type="submit" value="pesquisa" name="upload" id="pesquisa" class="btn-confirm"/>
@@ -76,7 +76,7 @@
 								</div>
 								<div class="section-content">
 									<div class="form-master">
-										<form method="POST" action="servletControle?cmd=Alterar" enctype="multipart/form-data" >
+										<form method="POST" action="ServletControle?cmd=Alterar" enctype="multipart/form-data" >
 									       
 									        <input type="text" name="text" id="alterar-parametro" /> <br/>
 									        <input type="submit" value="alterar" name="upload" id="alterar" class="btn-confirm"/>
@@ -90,7 +90,7 @@
 								</div>
 								<div class="section-content">
 									<div class="form-master">
-										<form method="POST" action="servletControle?cmd=Excluir" enctype="multipart/form-data" >
+										<form method="POST" action="ServletControle?cmd=Excluir" enctype="multipart/form-data" >
 									       
 									        <input type="text" name="text" id="Excluir-parametro" /> <br/>
 									        <input type="submit" value="Excluir" name="upload" id="Excluir" class="btn-confirm"/>
