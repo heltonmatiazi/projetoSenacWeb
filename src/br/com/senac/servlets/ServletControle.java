@@ -1,4 +1,5 @@
 package br.com.senac.servlets;
+import br.com.senac.model.Pessoa;
 import br.com.senac.tratamento.ImportaArquivo;
 
 import java.io.File;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -33,6 +35,9 @@ public class ServletControle extends HttpServlet implements Serializable{
     private RequestDispatcher rd;
     private final String UPLOAD_DIRECTORY = "C:\\SNAC\\";
     private ImportaArquivo importador;
+    private static String INSERT_OR_EDIT = "/user.jsp";
+    private static String LIST_USER = "/listUser.jsp";
+    private Pessoa pessoa;
 
     public ServletControle() {
         super();
@@ -75,14 +80,23 @@ public class ServletControle extends HttpServlet implements Serializable{
     	rd = request.getRequestDispatcher("/mostraProduto.jsp");
     }
 	private void pesquisar() {
-		// TODO Auto-generated method stub
-		
+		/*forward = LIST_USER;
+        request.setAttribute("users", dao.getAllUsers());*/
 	}
 	private void alterar(){
-
+		/*forward = INSERT_OR_EDIT;*/
+        int userId = Integer.parseInt(request.getParameter("userId"));
+       /* User user = dao.getUserById(userId);
+        request.setAttribute("user", user);*/
     }
     private void excluir(){
-
+    	int userId = Integer.parseInt(request.getParameter("userId"));
+    	
+    	/*Insira o método de deletar as pessoas aqui
+        
+        exemplo.deleteUser(userId);
+        forward = LIST_USER;
+        request.setAttribute("users", dao.getAllUsers());   */
     }
 
 	private void carregaXls() {
