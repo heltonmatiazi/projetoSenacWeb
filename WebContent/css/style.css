@@ -1,15 +1,22 @@
 /*******
 convenções
 *******/
-.container{
-  width: 90%;
-  margin: 0 auto;
+/*o box sizing é resetado para que as mesmas regras de padding sejam aplicadas a todos os navegadores */
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
 }
 .section-title h3{
   text-align: center;
   font-size: 29px;
   color: #fff;
 }
+.section-content{
+  padding:10px;
+}
+
+
 /*******
 topo
 *******/
@@ -32,7 +39,17 @@ footer{
 pagina - home
 *******/
 .main-content{
-	padding:30px 0px;
+  padding:30px 0px;
+}
+.form-section .section-title{
+  background: #000;
+}
+
+  /***
+  botões de staging - selecionando os formulários
+  ***/
+.staging-buttons .btn{
+  
 }
   /*******
     formulário
@@ -41,7 +58,7 @@ pagina - home
   color: #000;
 }
 /* botão submit */
-#upload{
+.btn-confirm{
   background: red;
   color: #fff;
   border: 1px solid red;
