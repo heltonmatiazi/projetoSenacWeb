@@ -25,11 +25,11 @@ header{
   padding: 30px 0px;
 }
 .section-welcome p{
-	color:#fff;
+  color:#fff;
 }
 .section-welcome p span{
-	color:crimson;
-	font-weight:bold;
+  color:crimson;
+  font-weight:bold;
 }
 /*******
 rodapé
@@ -74,7 +74,7 @@ pagina - home
 }
 
 .form-section .section-title h3{
-	line-height:70px;
+  line-height:70px;
 }
 
   /*******
@@ -82,6 +82,21 @@ pagina - home
   *******/
 .label-name{
   color: #000;
+}
+.form-label{
+  min-width: 250px;
+}
+.form-group{
+  padding: 10px;
+  border-bottom: 1px solid #afafaf;
+}
+.btn-green{
+  background: green;
+  color: #fff;
+}
+.field-large{
+  min-width: 400px;
+  max-width: 100%;
 }
 /* botão submit */
 .btn-confirm{
