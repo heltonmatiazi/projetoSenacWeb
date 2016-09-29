@@ -107,6 +107,23 @@ pagina - home
   padding: 5px 8px;
   margin:10px 0px;
 }
+
+
+/*botões de contexto - adicionando novos input fields*/
+.add-field-button,.add-curso-button{
+      margin: 10px auto;
+    display: block;
+    background: crimson;
+    padding: 10px 10px;
+    font-weight: bold;
+}
+.remove-field{
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
 /*******
 pagina - placeholder
 *******/

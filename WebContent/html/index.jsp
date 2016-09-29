@@ -189,7 +189,9 @@
 									        	<div class="section-title text-center">
 									        		<h3>Dados do Curso</h3>
 									        	</div>
-									        	<div class="form-group">
+									        	<div class="wrapper-cursos">
+									        	<div class="cursos-main">
+									        		<div class="form-group">
 										        	<label class="form-label">Curso:</label>
 											        <input type="text" name="curso" class="field-large">
 											   		<div class="clearfix"></div>
@@ -233,12 +235,15 @@
 										       	</div>
 										       	<div class="clearfix"></div>
 
-										       	<div class="form-group">
+										       	<div class="form-group  form-hack">
 										       		<label class="form-label">Semestre de Conclusão</label>
 										       		<input type="text" name="semestre-conclusao">
 										       	</div>
 										       	<div class="clearfix"></div>
+									        	</div>
 									        </div>
+									       	<button class="add-curso-button btn-confirm">adicionar novos cursos</button>
+									       </div>
 
 									        <div class="localizacao">
 									        	<div class="section-title text-center">
@@ -309,68 +314,31 @@
 												<div class="section-title text-center">
 													 <h3>Experiências profissionais</h3>
 												</div>
-												<div class="form-group">
-													<label class="form-label">Empresa</label>
-													<input type="text" name="empresa-1" class="field-large">
-													
-													<div class="clearfix"></div>
-													<label class="form-label">Cargo</label>
-													<input type="text" name="cargo-1" class="field-large">
-													<div class="clearfix"></div>
+											<!-- geração de divs de experiencia profissional -->
+												<div class="input-fields-wrap">
+												    <div class="form-group">
+														<label class="form-label">Empresa</label>
+														<input type="text" name="empresa-1" class="field-large">
+														
+														<div class="clearfix"></div>
+														<label class="form-label">Cargo</label>
+														<input type="text" name="cargo-1" class="field-large">
+														<div class="clearfix"></div>
 
-													<label class="form-label">Tipo de Trabalho:</label>
-													<select>
-														<option>Selecione a titulação</option>
-														<option value="estagio">Estágio</option>
-														<option value="contratacao">Contratação</option>
-														<option value="CLT">clt</option>
-														<option value="concurso">Concurso</option>
-													</select>
-													
-													<div class="clearfix"></div>
+														<label class="form-label">Tipo de Trabalho:</label>
+														<select>
+															<option>Selecione a titulação</option>
+															<option value="estagio">Estágio</option>
+															<option value="contratacao">Contratação</option>
+															<option value="CLT">clt</option>
+															<option value="concurso">Concurso</option>
+														</select>
+														
+														<div class="clearfix"></div>
+													</div>
+
 												</div>
-
-												<div class="form-group">
-													<label class="form-label">Empresa:</label>
-													<input type="text" name="empresa-2" class="field-large">
-													<div class="clearfix"></div>
-													
-
-													<label class="form-label">Cargo</label>
-													<input type="text" name="cargo-2" class="field-large">
-													<div class="clearfix"></div>
-
-													<label class="form-label">Tipo de Trabalho:</label>
-													<select>
-														<option>Selecione o tipo de trabalho</option>
-														<option value="estagio">Estágio</option>
-														<option value="contratacao">Contratação</option>
-														<option value="CLT">clt</option>
-														<option value="concurso">Concurso</option>
-													</select>
-													<div class="clearfix"></div>
-												</div>
-												<div class="form-group">
-													<label class="form-label">Empresa:</label>
-													<input type="text" name="empresa-3" class="field-large">
-													<div class="clearfix"></div>
-
-
-													<label class="form-label">Cargo</label>
-													<input type="text" name="cargo-3" class="field-large">
-													<div class="clearfix"></div>
-													
-													<label class="form-label">Tipo de Trabalho:</label>
-													<select>
-														<option>Selecione o tipo de trabalho</option>
-														<option value="estagio">Estágio</option>
-														<option value="contratacao">Contratação</option>
-														<option value="CLT">clt</option>
-														<option value="concurso">Concurso</option>
-													</select>
-													<div class="clearfix"></div>
-												</div>
-		
+												<button class="add-field-button btn-confirm">Inserir Novas Experiências</button>
 											</div>
 
 											<div class="clearfix"></div>
