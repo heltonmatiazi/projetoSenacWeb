@@ -170,6 +170,40 @@
 								<div class="section-content">
 									<div class="form-master">
 										<form method="POST" action="ServletControle?cmd=Cadastrar">
+											<div class="informacao-basica">
+												<div class="section-title text-center">
+													<h3>Informações Básicas</h3>
+												</div>
+												<div class="form-group">
+													<label class="form-label">Nome</label>
+													<input type="text" name="Nome" class="field-large">
+												</div>
+												<div class="clearfix"></div>
+												<div class="form-group">
+													<label class="form-label">Sobrenome</label>
+													<input type="text" name="Sobrenome" class="field-large">
+												</div>
+												<div class="clearfix"></div>
+												<div class="form-group">
+													<label class="form-label">Data de Nascimento</label>
+													<input type="text" name="dt-nascimento">
+												</div>
+												<div class="clearfix"></div>
+												<div class="form-group">
+													<label class="form-label">Sexo</label>
+													<select name="Dexo">
+											       		<option>Selecione seu sexo</option>
+											       		<option value="Masculino">Masculino</option>
+											       		<option value="Feminino">Feminino</option>
+											       	</select>
+												</div>
+												<div class="clearfix"></div>
+												<div class="form-group">
+													<label class="form-label">CPF</label>
+													<input type="text" name="cpf">
+												</div>
+												<div class="clearfix"></div>
+											</div>
 											<div class="formacao-basica">
 												<div class="section-title text-center">
 													<h3>Formação Básica</h3>
@@ -340,7 +374,7 @@
 
 														<label class="form-label">Tipo de Trabalho:</label>
 														<select>
-															<option>Selecione a titulação</option>
+															<option>Selecione a categoria</option>
 															<option value="estagio">Estágio</option>
 															<option value="contratacao">Contratação</option>
 															<option value="CLT">clt</option>
