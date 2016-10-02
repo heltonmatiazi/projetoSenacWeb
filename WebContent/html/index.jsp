@@ -176,12 +176,12 @@
 												</div>
 												<div class="form-group">
 													<label class="form-label">Formação Básica</label>
-													<input type="" name="formacao-basica" class="field-large">
+													<input type="text" name="formacao-basica" class="field-large">
 												</div>
 												<div class="clearfix"></div>
 												<div class="form-group">
 													<label class="form-label">Formação de Ensino Médio</label>
-													<input type="" name="form-media" class="field-large">
+													<input type="text" name="form-media" class="field-large">
 												</div>
 												<div class="clearfix"></div>
 											</div>									  		
@@ -310,6 +310,19 @@
 									        </div>
 									        </div>
 
+									        <div class="informacoes-contato">
+									        	<div class="section-title text-center">
+									        		<h3>Informações de Contato</h3>
+									        	</div>
+									        	<div class="form-group">
+									        		<label class="form-label">Telefone</label>
+									        		<input type="text" name="Telefone">
+									        		<div class="clearfix"></div>
+									        		<label class="form-label">Email</label>
+									        		<input type="text" name="Email">
+									        	</div>
+									        	<div class="clearfix"></div>
+									        </div>
 											<div class="experiencias-profissionais">
 												<div class="section-title text-center">
 													 <h3>Experiências profissionais</h3>
