@@ -98,8 +98,8 @@ pagina - home
   min-width: 400px;
   max-width: 100%;
 }
-/* botão submit */
-.btn-confirm{
+/* botões submit e apagar*/
+.btn-confirm,.btn-erase{
   background: red;
   color: #fff;
   border: 1px solid red;
@@ -133,6 +133,6 @@ responsividade
 *******/
 @media(min-width:768px){
 	.main-content{
-	 min-height:670px;
+	 min-height:640px;
 	}
 }
