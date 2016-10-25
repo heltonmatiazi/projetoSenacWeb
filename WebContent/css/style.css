@@ -131,3 +131,8 @@ pagina - placeholder
 /*******
 responsividade
 *******/
+@media(min-width:768px){
+	.main-content{
+	 min-height:670px;
+	}
+}

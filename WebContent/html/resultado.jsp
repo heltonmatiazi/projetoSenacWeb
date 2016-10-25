@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Resultado</title>
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 <header>
@@ -18,7 +19,8 @@
 	<section class="main-content">
 		<div class="container">
 			<div class="response-manager">
-				<h4>${requestScope["message"]}</h4>
+ 				<h4>${requestScope["message"]}</h4> 
+
 			</div>
 		</div>
 	</section>

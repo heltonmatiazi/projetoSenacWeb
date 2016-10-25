@@ -1,8 +1,9 @@
 $(document).ready(function(){
    
-
+	
    /* O primeiro passo é esconder todas as divs que contenham formulários*/ 
-    $(".form-section").hide();  
+    $("#form_1").hide();
+    $("#form_2").hide();    
     /*A função é invocada toda vez que um elemento com a classe btn que esteja dentro do container
     staging-buttons é clicado*/
     $(".staging-buttons .btn").on('click', function(event) {
@@ -24,7 +25,7 @@ $(document).ready(function(){
         e.preventDefault();
         if(controlBtn < max_fields){ 
             controlBtn++; 
-            $(wrapper).append('<div class="form-group"><label class="form-label">Empresa</label><input type="text" name="empresa-1" class="field-large"><div class="clearfix"></div><label class="form-label">Cargo</label><input type="text" name="cargo-1" class="field-large"><div class="clearfix"></div><label class="form-label">Tipo de Trabalho:</label><select><option>Selecione a titulação</option><option value="estagio">Estágio</option><option value="contratacao">Contratação</option><option value="CLT">clt</option><option value="concurso">Concurso</option></select><div class="clearfix"></div><a href="#" class="remove-field">Remover</a></div>'); //add input box
+            $(wrapper).append('<div class="input-fields-wrap"> <div class="form-group"><label class="form-label">Empresa</label><input type="text" name="empresa-1" class="field-large"><div class="clearfix"></div><label class="form-label">Cargo</label><input type="text" name="cargo-1" class="field-large"><div class="clearfix"></div><label class="form-label">Tipo de Trabalho:</label><select name="tipo-trabalho"><option>Selecione a titulação</option><option value="estagio">Estágio</option><option value="contratacao">Contratação</option><option value="CLT">clt</option><option value="concurso">Concurso</option></select><div class="clearfix"></div></div><label class="form-label">Data de Entrada</label><input type="text" name="dataEntrada"><div class="clearfix"></div><label class="form-label">Data de Saída</label><input type="text" name="dataSaida"><div class="clearfix"></div><a href="#" class="remove-field">Remover</a></div>'); //add input box
         }
     });
     
