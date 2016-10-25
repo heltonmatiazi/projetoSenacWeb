@@ -131,3 +131,23 @@ INSERT INTO TIPOTRABALHO(TIPO) VALUES('CONTRATAÇÃO');
 INSERT INTO TIPOTRABALHO(TIPO) VALUES('CLT');
 INSERT INTO TIPOTRABALHO(TIPO) VALUES('CONCURSO');
  
+ 
+insert into endereco(idEstado,rua,numero,complemento,cidade,cep)values(1,"rua de teste",3,"complemento de teste","São josé",88222333);
+
+insert into contato(email,telefone) values("teste@teste.com","4833445566");
+
+
+insert into perfil(idEndereco,idContato,nome,sobrenome,dataNascimento,sexo,cpf,formacaoBasica,formacaoEnsinoMedio)
+values(1,1,"nome de teste","sobrenome de teste","2016-01-01",'masculino',"02333322212","formaçao basica teste", "formação media teste");
+
+insert into cursoEgresso(idPerfil,nomeCurso,unidadeSenac,anoIngresso,
+		semestreIngresso,anoConclusao,semestreConclusao,idTitulo)
+			values(1, "curso de teste", "senac de outro teste", 2015,1,2016,2,1);
+
+
+insert into experiencias(idPerfil,empresa,cargo,dataIngresso,dataSaida,idTipoTrabalho)
+				values(1,"empres de teste","CEO","2016-01-01","2016-01-02",1);
+
+
+
+select * from perfil;
