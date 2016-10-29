@@ -42,22 +42,20 @@ public class ContatoDAO implements Serializable {
 	}
 
 	public boolean alterar(Contato c) throws SQLException {
-		try {
-			conn = Conexao.getConnection();
-			pstm = conn.prepareStatement("UPDATE CONTATO SET EMAIL = ?, TELEFONE = ? WHERE IDCONTATO = ?");
-			pstm.setString(1, c.getEmail());
-			pstm.setString(2, c.getTelefone());
-			pstm.setInt(3, c.getIdContato());
-			int linhas = pstm.executeUpdate();
 
-			if (linhas > 0) {
-				return true;
-			}
+		conn = Conexao.getConnection();
+		pstm = conn.prepareStatement("UPDATE CONTATO SET EMAIL = ?, TELEFONE = ? WHERE IDCONTATO = ?");
+		pstm.setString(1, c.getEmail());
+		pstm.setString(2, c.getTelefone());
+		pstm.setInt(3, c.getIdContato());
+		int linhas = pstm.executeUpdate();
 
-			return false;
-		} finally {
-			Conexao.closeResources(conn, pstm);
+		if (linhas > 0) {
+			return true;
 		}
+
+		return false;
+
 	}
 
 	public boolean excluir(Integer idContato) throws SQLException {
