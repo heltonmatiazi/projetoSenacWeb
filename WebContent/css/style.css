@@ -99,7 +99,7 @@ pagina - home
   max-width: 100%;
 }
 /* botões submit e apagar*/
-.btn-confirm,.btn-erase{
+.btn-confirm,.btn-erase,.casoTeste{
   background: red;
   color: #fff;
   border: 1px solid red;

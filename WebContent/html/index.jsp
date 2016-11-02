@@ -177,7 +177,7 @@
 												<div class="clearfix"></div>
 												<div class="form-group">
 													<label class="form-label">Data de Nascimento</label>
-													<input type="text" name="dt-nascimento" value="<fmt:formatDate value='${perfil.dataNascimento}' pattern='dd/MM/yyyy'/>" />
+													<input type="text" id="dateInput" name="dt-nascimento" value="<fmt:formatDate value='${perfil.dataNascimento}' pattern='dd/MM/yyyy'/>" />
 												</div>
 												<div class="clearfix"></div>
 												<div class="form-group">
@@ -397,6 +397,7 @@
 											
 											<input type="submit" value="Adicionar" name="adicionar" id="Adicionar" class="btn-confirm"/>
 											<input type="reset" name="Apagar" value="Apagar" id="Apagar" class="btn-erase">
+											<button class="casoTeste">Gerar caso de teste</button>
 									    </form>
 									</div>
 								</div>
