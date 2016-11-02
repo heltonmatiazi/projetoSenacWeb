@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Conexao {
 	private static final String URL = "jdbc:mysql://localhost:3306/egressos";
 	private static final String LOGIN = "root";
-	private static final String PASS = "admin";
+	private static final String PASS = "";
 	private static Connection conn;
 
 	public static Connection getConnection() throws SQLException {
@@ -29,7 +29,8 @@ public class Conexao {
 
 	}
 
-	private static void closeAll(Connection c, PreparedStatement ps, ResultSet rs) throws SQLException {
+	private static void closeAll(Connection c, PreparedStatement ps,
+			ResultSet rs) throws SQLException {
 
 		if (rs != null) {
 			rs.close();
@@ -45,11 +46,13 @@ public class Conexao {
 
 	}
 
-	public static void closeResources(Connection c, PreparedStatement ps, ResultSet rs) throws SQLException {
+	public static void closeResources(Connection c, PreparedStatement ps,
+			ResultSet rs) throws SQLException {
 		closeAll(c, ps, rs);
 	}
 
-	public static void closeResources(Connection c, PreparedStatement ps) throws SQLException {
+	public static void closeResources(Connection c, PreparedStatement ps)
+			throws SQLException {
 		closeAll(c, ps, null);
 	}
 }
