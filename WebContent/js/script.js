@@ -103,6 +103,11 @@ $(document).ready(function(){
             };
       };
     });
+
+    $("#Apagar").on('click',function(e){
+     $('.form-master :input').not(':button, :submit, :reset, :hidden').removeAttr('checked')
+     .removeAttr('selected').not('‌​:checkbox, :radio, select').attr('value','');
+    });
     
 });
 
