@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.Statement;
-
 import br.com.senac.excecao.FalhaBancoException;
 import br.com.senac.model.CursoEgresso;
 import br.com.senac.model.Titulo;
@@ -21,10 +19,8 @@ public class CursoEgressoDAO implements Serializable {
 
 	public void inserir(CursoEgresso curso) throws SQLException {
 		conn = Conexao.getConnection();
-		pstm = conn.prepareStatement(
-				"INSERT INTO CURSOEGRESSO(IDPERFIL, NOMECURSO, UNIDADESENAC,ANOINGRESSO,"
-						+ "SEMESTREINGRESSO,ANOCONCLUSAO,SEMESTRECONCLUSAO,IDTITULO) VALUES(?,?,?,?,?,?,?,?);",
-				Statement.RETURN_GENERATED_KEYS);
+		pstm = conn.prepareStatement("INSERT INTO CURSOEGRESSO(IDPERFIL, NOMECURSO, UNIDADESENAC,ANOINGRESSO,"
+				+ "SEMESTREINGRESSO,ANOCONCLUSAO,SEMESTRECONCLUSAO,IDTITULO) VALUES(?,?,?,?,?,?,?,?);");
 
 		pstm.setInt(1, curso.getIdPerfil());
 		pstm.setString(2, curso.getNomeCurso());
@@ -36,10 +32,6 @@ public class CursoEgressoDAO implements Serializable {
 		pstm.setInt(8, curso.getTitulo().getCodigoTitulo());
 
 		int linhas = pstm.executeUpdate();
-		ResultSet rs = pstm.getGeneratedKeys();
-		rs.next();
-		curso.setIdCursoEgresso(rs.getInt(1));
-		rs.close();
 
 		if (linhas == 0) {
 			throw new FalhaBancoException("Erro ao gravar informações do curso.");

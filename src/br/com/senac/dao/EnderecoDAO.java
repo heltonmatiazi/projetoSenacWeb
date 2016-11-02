@@ -50,8 +50,7 @@ public class EnderecoDAO implements Serializable {
 
 		conn = Conexao.getConnection();
 		pstm = conn.prepareStatement(
-				"UPDATE ENDERECO SET IDESTADO = ?, RUA = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, CEP =? WH"
-						+ "ERE IDENDERECO = ?");
+				"UPDATE ENDERECO SET IDESTADO = ?, RUA = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, CEP =? WJERE IDENDERECO = ?");
 		pstm.setInt(1, end.getEstado().getId());
 		pstm.setString(2, end.getRua());
 		pstm.setInt(3, end.getNumero());

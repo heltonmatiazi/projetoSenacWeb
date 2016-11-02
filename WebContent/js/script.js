@@ -19,22 +19,66 @@ $(document).ready(function(){
     var max_fields      = 3; //limite de input fields
     var wrapper         = $(".input-fields-wrap"); //container
     var add_button      = $(".add-field-button"); //setando botão de adicionar
+    var profissionais   ='<div class="input-fields-wrap prof-wrap">'+
+                          ' <div class="form-group"><label class="form-label">Empresa</label>'+
+                          '<input type="text" name="empresa-1" class="field-large">'+
+                          '<div class="clearfix"></div><label class="form-label">Cargo</label>'+
+                          '<input type="text" name="cargo-1" class="field-large"><div class="clearfix">'+
+                          '</div><label class="form-label">Tipo de Trabalho:</label>'+
+                          '<select name="tipo-trabalho"><option>Selecione a titulação</option>'+
+                          '<option value="estagio">Estágio</option><option value="contratacao">'+
+                          'Contratação</option><option value="CLT">CLT</option>'+
+                          '<option value="concurso">Concurso</option></select>'+
+                          '<div class="clearfix"></div></div><label class="form-label">'+
+                          'Data de Entrada</label><input type="text" name="dataEntrada">'+
+                          '<div class="clearfix"></div><label class="form-label">Data de Saída'+
+                          '</label><input type="text" name="dataSaida"><div class="clearfix">'+
+                          '</div></div>';
     
-    var controlBtn = 1; //campos de experiencias profissionais iniciais
-    $(add_button).click(function(e){ // ao clicar no botão, invocar a função
+
+    var cursos          =  '<div class="cursos-wrap"><div class="form-group"> <label class="form-label">Curso:</label>'+ 
+                          '<input type="text" name="curso" class="field-large"> <div class="clearfix">'+
+                          '</div></div><div class="form-group"> <label class="form-label">'+
+                          'Tipo de Título adquirido</label> <select name="titulo">'+
+                          '<option>Selecione a titulação</option> <option value="tecnologo">'+
+                          'Tecnólogo</option> '+
+                          '<option value="licenciatura">Licenciatura</option> <option value="bacharelado">'+
+                          'Bacharelado</option>'+
+                          '<option value="mestrado">Mestrado</option> <option value="doutorado">Doutorado</option> '+
+                          '<option value="pos-doutorado">Pós-doutorado</option> </select> <div class="clearfix">'+
+                          '</div></div><div class="form-group"> <label class="form-label">Unidade do senac</label>'+
+                          '<input type="text" name="unidade-senac" class="field-large"> </div><div class="clearfix">'+
+                          '</div><div class="form-group"> <label class="form-label">Ano de ingresso:</label>'+
+                          '<input type="text" name="ano-ingresso"> </div><div class="clearfix">'+
+                          '</div><div class="form-group"> <label class="form-label">Semestre de Ingresso</label>'+
+                          '<input type="text" name="semestre-ingresso"> </div><div class="clearfix"></div>'+
+                          '<div class="form-group"> <label class="form-label">Ano de Conclusão</label> '+
+                          '<input type="text" name="ano-conclusao"> </div><div class="clearfix"></div>'+
+                          '<div class="form-group form-hack"> <label class="form-label">Semestre de Conclusão</label>'+
+                          '<input type="text" name="semestre-conclusao">'+
+                          '</div><div class="clearfix"></div></div></div>'  ;                    
+    var controlBtn = 1; 
+    $(add_button).click(function(e){ 
         e.preventDefault();
-        if(controlBtn < max_fields){ 
+         if(controlBtn <= max_fields){ 
+            $(wrapper).append(profissionais);
+            var profCounter= $(".prof-wrap input[type='text']");
             controlBtn++; 
-            $(wrapper).append('<div class="input-fields-wrap"> <div class="form-group"><label class="form-label">Empresa</label><input type="text" name="empresa-1" class="field-large"><div class="clearfix"></div><label class="form-label">Cargo</label><input type="text" name="cargo-1" class="field-large"><div class="clearfix"></div><label class="form-label">Tipo de Trabalho:</label><select name="tipo-trabalho"><option>Selecione a titulação</option><option value="estagio">Estágio</option><option value="contratacao">Contratação</option><option value="CLT">CLT</option><option value="concurso">Concurso</option></select><div class="clearfix"></div></div><label class="form-label">Data de Entrada</label><input type="text" name="dataEntrada"><div class="clearfix"></div><label class="form-label">Data de Saída</label><input type="text" name="dataSaida"><div class="clearfix"></div><a href="#" class="remove-field">Remover</a></div>'); //add input box
-        }
+          
+            for (index = 0; index < profCounter.length; ++index) {
+               profCounter[index].setAttribute('id', "InputId" + controlBtn+ [index]);
+               profCounter[index].setAttribute('name', "InputName"+ controlBtn + [index]);
+            };
+            var selectCounter = $(".prof-wrap select option");
+            for(index2 = 0; index2 < selectCounter.length; ++index2){
+              selectCounter[index2].setAttribute('id', "optionId"+ controlBtn +index2);
+              selectCounter[index2].setAttribute('name', "optionName"+ controlBtn +index2);
+            };
+            
+        };
     });
     
-    $(wrapper).on("click",".remove-field", function(e){ //ao clicar em remove-field, remove o campo selecionado
-        e.preventDefault(); $(this).parent('div').remove(); controlBtn--;
-    })
 
-    //essa sessão trata da adição de inputs dinâmicos de cursos, o código viola o padrão de reuso por que
-    // é input pra caramba, sorry
 
     var maxCursoFields    = 3;
     var cursoWrapper      = $(".wrapper-cursos");
@@ -44,17 +88,22 @@ $(document).ready(function(){
 
     $(addCursoBtn).click(function(e){
       e.preventDefault();
-      if(controlCurso < maxCursoFields){
+      if(controlCurso <= maxCursoFields){
         controlCurso++;
-        $(cursoWrapper).append('<div class="form-group"> <label class="form-label">Curso:</label> <input type="text" name="curso" class="field-large"> <div class="clearfix"></div></div><div class="form-group"> <label class="form-label">Tipo de Título adquirido</label> <select name="titulo"> <option>Selecione a titulação</option> <option value="tecnologo">Tecnólogo</option> <option value="licenciatura">Licenciatura</option> <option value="bacharelado">Bacharelado</option> <option value="mestrado">Mestrado</option> <option value="doutorado">Doutorado</option> <option value="pos-doutorado">Pós-doutorado</option> </select> <div class="clearfix"></div></div><div class="form-group"> <label class="form-label">Unidade do senac</label> <input type="text" name="unidade-senac" class="field-large"> </div><div class="clearfix"></div><div class="form-group"> <label class="form-label">Ano de ingresso:</label> <input type="text" name="ano-ingresso"> </div><div class="clearfix"></div><div class="form-group"> <label class="form-label">Semestre de Ingresso</label> <input type="text" name="semestre-ingresso"> </div><div class="clearfix"></div><div class="form-group"> <label class="form-label">Ano de Conclusão</label> <input type="text" name="ano-conclusao"> </div><div class="clearfix"></div><div class="form-group form-hack"> <label class="form-label">Semestre de Conclusão</label> <input type="text" name="semestre-conclusao"> </div><div class="clearfix"></div><a href="#" class="remove-field">Remover</a></div>');
-      }
+        $(cursoWrapper).append(cursos);
+         var cursosCounter= $(".cursos-wrap input[type='text']");
+            for (index = 0; index < cursosCounter.length; ++index) {
+             cursosCounter[index].setAttribute('id', "InputCursoId" + controlCurso+ [index]);
+              cursosCounter[index].setAttribute('name', "InputCursoName"+ controlCurso + [index]);
+            };
+            var selectCursoCounter = $(".cursos-wrap select option");
+            for(index2 = 0; index2 < selectCursoCounter.length; ++index2){
+              selectCursoCounter[index2].setAttribute('id', "optionId"+ controlBtn +index2);
+              selectCursoCounter[index2].setAttribute('name', "optionName"+ controlBtn +index2);
+            };
+      };
     });
-
-    $(wrapper).on("click", ".remove-field",function(e){
-      e.preventDefault();
-      $(this).parent('div').remove();
-      controlCurso--;
-    })
+    
 });
 
 

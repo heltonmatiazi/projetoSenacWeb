@@ -38,7 +38,7 @@ public class FalhaBancoException extends RuntimeException {
 
 	@Override
 	public String toString() {
-		if (getHelp() != null && !getHelp().trim().equals("")) {
+		if (getHelp() != null || !getHelp().equals("")) {
 			return String.format("%s (%s)", getHelp(), getMessage());
 		} else {
 			return getMessage();
