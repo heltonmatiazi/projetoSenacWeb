@@ -27,6 +27,9 @@ public class PerfilDAO implements Serializable {
 	private EnderecoDAO endereco;
 	private boolean cursoOK;
 	private boolean expOK;
+	private boolean enderecoOK;
+	private boolean contatoOK;
+
 	private Perfil p;
 
 	public void preCadastro(Perfil perfil) throws SQLException, FalhaBancoException {
@@ -139,45 +142,54 @@ public class PerfilDAO implements Serializable {
 			conn.setAutoCommit(false);
 			cursoOK = false;
 			expOK = false;
+			enderecoOK = false;
+			contatoOK = false;
 			expDAO = new ExperienciasDAO();
 			ceDAO = new CursoEgressoDAO();
-
-			// /*
-			// * Caso seja aluno pré-cadastrado atualizando dados
-			// */
-			// if (p.getCurso().get(0).getIdCursoEgresso() == null
-			// || p.getExperiencias().get(0).getIdExperiencia() == null) {
-			// for (CursoEgresso c : p.getCurso()) {
-			// c.setIdPerfil(p.getIdPerfil());
-			// ceDAO.inserir(c);
-			// }
-			//
-			// for (Experiencia exp : p.getExperiencias()) {
-			// exp.setIdPerfil(p.getIdPerfil());
-			// expDAO.inserir(exp);
-			// }
-			// }
+			endereco = new EnderecoDAO();
+			contato = new ContatoDAO();
 
 			/*
-			 * Caso seja aluno que já cadastrou um curso
+			 * Decisão caso seja aluno pré-cadastrado atualizando dados
 			 */
-
-			for (CursoEgresso c : p.getCurso()) {
-				cursoOK = ceDAO.alterar(c);
-				if (!cursoOK) {
-					break;
+			if (p.getCurso().get(0).getIdCursoEgresso() == null) {
+				for (CursoEgresso c : p.getCurso()) {
+					c.setIdPerfil(p.getIdPerfil());
+					ceDAO.inserir(c);
+				}
+			} else {
+				for (CursoEgresso c : p.getCurso()) {
+					cursoOK = ceDAO.alterar(c);
+					if (!cursoOK) {
+						throw new FalhaBancoException("Erro ao gravar cursos.");
+					}
 				}
 			}
 
-			for (Experiencia exp : p.getExperiencias()) {
-				expOK = expDAO.alterar(exp);
-				if (!expOK) {
-					break;
+			if (p.getExperiencias().get(0).getIdExperiencia() == null) {
+				for (Experiencia exp : p.getExperiencias()) {
+					exp.setIdPerfil(p.getIdPerfil());
+					expDAO.inserir(exp);
+				}
+			} else {
+				for (Experiencia exp : p.getExperiencias()) {
+					expOK = expDAO.alterar(exp);
+					if (!expOK) {
+						throw new FalhaBancoException("Erro ao gravar experiências profissionais.");
+					}
 				}
 			}
+
+			if (p.getEndereco().getId() == null) {
+				endereco.inserir(p.getEndereco());
+			} else {
+				enderecoOK = endereco.alterar(p.getEndereco());
+			}
+
+			contatoOK = contato.alterar(p.getContato());
 
 			pstm = conn.prepareStatement(
-					"UPDATE PERFIL SET FORMACAOBASICA = ?, FORMACAOENSINOMEDIO = ?,  NOME = ?, SOBRENOME = ?, DATANASCIMENTO = ?, SEXO = ?, CPF = ? WHERE IDPERFIL = ?");
+					"UPDATE PERFIL SET FORMACAOBASICA = ?, FORMACAOENSINOMEDIO = ?,  NOME = ?, SOBRENOME = ?, DATANASCIMENTO = ?, SEXO = ?, CPF = ?, IDCONTATO = ?, IDENDERECO = ? WHERE IDPERFIL = ?");
 			pstm.setString(1, p.getFormacaoBasica());
 			pstm.setString(2, p.getFormacaoEnsinoMedio());
 			pstm.setString(3, p.getNome());
@@ -185,10 +197,12 @@ public class PerfilDAO implements Serializable {
 			pstm.setDate(5, new java.sql.Date(p.getDataNascimento().getTime()));
 			pstm.setString(6, p.getSexo().toString());
 			pstm.setString(7, p.getCpf());
-			pstm.setInt(8, p.getIdPerfil());
+			pstm.setInt(8, p.getContato().getIdContato());
+			pstm.setInt(9, p.getEndereco().getId());
+			pstm.setInt(10, p.getIdPerfil());
 			int linhas = pstm.executeUpdate();
 
-			if (cursoOK && expOK && linhas > 0) {
+			if (cursoOK && expOK && contatoOK && enderecoOK && linhas > 0) {
 				conn.commit();
 			}
 			conn.setAutoCommit(true);

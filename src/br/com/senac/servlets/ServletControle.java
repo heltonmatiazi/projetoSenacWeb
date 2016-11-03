@@ -43,7 +43,7 @@ public class ServletControle extends HttpServlet implements Serializable {
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private RequestDispatcher rd;
-	private final String UPLOAD_DIRECTORY = "D:\\TS\\";
+	private final String UPLOAD_DIRECTORY = "C:\\SNAC\\";
 	private ImportaArquivo importador;
 	private Perfil perfil;
 	private CursoEgresso curso;
@@ -52,6 +52,7 @@ public class ServletControle extends HttpServlet implements Serializable {
 	private Contato contato;
 	private List<CursoEgresso> listaCurso;
 	private List<Experiencia> listaExp;
+	private List<Estado> listaEstados;
 
 	public ServletControle() {
 		super();
@@ -61,6 +62,10 @@ public class ServletControle extends HttpServlet implements Serializable {
 			throws ServletException, IOException {
 		this.request = request;
 		this.response = response;
+		// EstadoBO bo = new EstadoBO();
+		// listaEstados = bo.listaEstados();
+		// request.setAttribute("listaEstados", listaEstados);
+
 		processaRequisicao();
 	}
 
@@ -235,6 +240,10 @@ public class ServletControle extends HttpServlet implements Serializable {
 		/*
 		 * Endereço
 		 */
+		if (request.getParameter("idEndereco") != null && !request.getParameter("idEndereco").trim().equals("")) {
+			endereco.setId(Integer.parseInt(request.getParameter("idEndereco")));
+		}
+
 		endereco.setRua(request.getParameter("rua"));
 		endereco.setNumero(Integer.parseInt(request.getParameter("numero")));
 		endereco.setComplemento(request.getParameter("Complemento"));
@@ -247,6 +256,9 @@ public class ServletControle extends HttpServlet implements Serializable {
 		/*
 		 * Contato
 		 */
+		if (request.getParameter("idContato") != null && !request.getParameter("idContato").trim().equals("")) {
+			contato.setIdContato(Integer.parseInt(request.getParameter("idContato")));
+		}
 		contato.setEmail(request.getParameter("email"));
 		contato.setTelefone(request.getParameter("telefone"));
 

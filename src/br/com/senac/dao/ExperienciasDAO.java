@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,8 @@ public class ExperienciasDAO implements Serializable {
 	public void inserir(Experiencia exp) throws SQLException {
 		conn = Conexao.getConnection();
 		pstm = conn.prepareStatement(
-				"INSERT INTO EXPERIENCIAS(IDPERFIL, EMPRESA,CARGO, DATAINGRESSO, DATASAIDA, IDTIPOTRABALHO) VALUES(?,?,?,?,?,?);");
+				"INSERT INTO EXPERIENCIAS(IDPERFIL, EMPRESA,CARGO, DATAINGRESSO, DATASAIDA, IDTIPOTRABALHO) VALUES(?,?,?,?,?,?);",
+				Statement.RETURN_GENERATED_KEYS);
 
 		pstm.setInt(1, exp.getIdPerfil());
 		pstm.setString(2, exp.getEmpresa());
@@ -29,6 +31,11 @@ public class ExperienciasDAO implements Serializable {
 		pstm.setDate(5, new java.sql.Date(exp.getDataSaida().getTime()));
 		pstm.setInt(6, exp.getTipoTrabalho().getCodigoTipo());
 		int linhas = pstm.executeUpdate();
+
+		ResultSet rs = pstm.getGeneratedKeys();
+		rs.next();
+		exp.setIdExperiencia(rs.getInt(1));
+		rs.close();
 
 		if (linhas == 0) {
 			throw new FalhaBancoException("Erro ao gravar experiência profissional.");

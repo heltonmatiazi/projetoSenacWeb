@@ -163,9 +163,9 @@
 													<h3>Informações Básicas</h3>
 												</div>
 												<div class="form-group">
-												<c:if test="${!empty perfil}">
+											
 												<input name="id" type="hidden" value="${perfil.idPerfil}" />
-												</c:if>
+					
 													<label class="form-label">Nome</label>
 													<input type="text" name="nome" class="field-large" value="${perfil.nome}"/>
 												</div>
@@ -278,8 +278,9 @@
 											
 									        <div class="localizacao">
 									        	<div class="section-title text-center">
-									        		<h3>Informações de Localização</h3>
+									        		<h3>Endereço</h3>
 									        	</div>
+									        	<input name="idEndereco" type="hidden" value="${perfil.endereco.id}" />
 									        	<div class="form-group">
 									        		<label class="form-label">Rua</label>
 									        		<input type="text" name="rua" class="field-large" value="${perfil.endereco.rua}">
@@ -345,6 +346,7 @@
 									        	<div class="section-title text-center">
 									        		<h3>Informações de Contato</h3>
 									        	</div>
+									        	<input name="idContato" type="hidden" value="${perfil.contato.idContato}" />
 									        	<div class="form-group">
 									        		<label class="form-label">Telefone</label>
 									        		<input type="text" name="telefone" value="${perfil.contato.telefone}">
