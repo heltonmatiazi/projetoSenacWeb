@@ -21,32 +21,46 @@ convenções
 topo
 *******/
 header{
-  background:#000;
-  padding: 30px 0px;
+  background:#fff;
+  padding-bottom:30px;
 }
-.section-welcome p{
-  color:#fff;
+header h3{
+  color: rgb(246, 139, 33);
+position: absolute;
+z-index: 234;
+left: 50%;
+top: 11%;
+font-size: 75px;
 }
-.section-welcome p span{
-  color:crimson;
+
+
+.user-name{
+	color:rgb(246, 139, 33);
   font-weight:bold;
 }
 /*******
 rodapé
 *******/
 footer{
-  background: #000;
+  background: rgb(20,87,129);
   padding: 30px 0px;
 }
 .copyright{
   color: #fff;
   text-align: center;
 }
+.research-link,.research-link:hover{
+	padding:10px 20px;
+	margin:30px 0px;
+	background:rgb(246, 139, 33);
+	bordr-radius:5px;
+	color:#fff;
+}
 /*******
 pagina - home
 *******/
 .main-content{
-  padding:30px 0px;
+  padding-bottom:30px;
 }
 
 
@@ -55,7 +69,9 @@ pagina - home
   ***/
 .section-select .section-title,.form-section .section-title{
   min-height:70px;
-  background:#000;
+  background:rgb(20,87,129);
+  border-radius:5px;
+  background-image:linear-gradient(to bottom,#337ab7 0,#265a88 100%);
 }
 .staging-buttons ul{
   margin:1px;
@@ -91,7 +107,7 @@ pagina - home
   border-bottom: 1px solid #afafaf;
 }
 .btn-green{
-  background: green;
+  background:rgb(252, 220, 188);
   color: #fff;
 }
 .field-large{
@@ -99,10 +115,10 @@ pagina - home
   max-width: 100%;
 }
 /* botões submit e apagar*/
-.btn-confirm,.btn-erase,.casoTeste{
-  background: red;
+.btn-confirm,.btn-erase,.casoTeste,.submitLogin{
+  background: rgb(246, 139, 33);
   color: #fff;
-  border: 1px solid red;
+  border: 1px solid rgb(246, 139, 33);
   border-radius: 10px;
   padding: 5px 8px;
   margin:10px 0px;
@@ -113,7 +129,7 @@ pagina - home
 .add-field-button,.add-curso-button{
       margin: 10px auto;
     display: block;
-    background: crimson;
+    background: rgb(246, 139, 33);
     padding: 10px 10px;
     font-weight: bold;
 }
@@ -125,9 +141,30 @@ pagina - home
     border-color: #d43f3a;
 }
 /*******
-pagina - placeholder
+pagina - login
 *******/
-
+.login-form form input[type="text"],.login-form form input[type="password"]{
+	padding:5px 10px;
+	margin:5px;
+	border:1px solid #afafaf;
+	border-radius:3px;
+	width:350px;
+	max-width:100%;
+}
+.login-form form input[type="submit"]{
+	padding:5px 10px;
+	margin:5px;
+}
+.staging-buttons ul li button{
+	background:rgb(246, 139, 33);
+	color:#fff;
+}
+/******
+páginas de erro
+******/
+.error-content{
+	min-height:350px;
+}
 /*******
 responsividade
 *******/
@@ -135,4 +172,7 @@ responsividade
 	.main-content{
 	 min-height:640px;
 	}
+	.error-content{
+	min-height:475px;
+}
 }

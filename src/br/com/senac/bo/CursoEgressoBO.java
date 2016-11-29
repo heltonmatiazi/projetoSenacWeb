@@ -1,11 +1,7 @@
 package br.com.senac.bo;
 
-import br.com.senac.dao.CursoEgressoDAO;
-import br.com.senac.model.CursoEgresso;
-import java.sql.SQLException;
-
-
 public class CursoEgressoBO {
+
 //	
 //	public void alterar(CursoEgresso c){
 //

@@ -2,7 +2,7 @@
     <wb-module deploy-name="projetoSenacWeb">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="projetoSenacWeb"/>
         <property name="java-output-path" value="/projetoSenacWeb/build/classes"/>
+        <property name="context-root" value="projetoSenacWeb"/>
     </wb-module>
 </project-modules>
