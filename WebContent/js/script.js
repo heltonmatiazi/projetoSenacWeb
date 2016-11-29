@@ -1,6 +1,17 @@
 $(document).ready(function(){
    
-  
+    /*Popula select de cursos e etsados*/
+    $.getJSON("../egressos", function(listaEstados) {
+        var selectEstados = $("#estados");
+        var selectEstados2 = $("#estados2");
+
+    $.each(listaEstados, function(index, data) {
+        $("<option>").val(data.id).text(data.nome).appendTo(selectEstados);
+        $("<option>").val(data.id).text(data.nome).appendTo(selectEstados2);
+        
+        });
+    });
+    
    /* O primeiro passo é esconder todas as divs que contenham formulários*/ 
     $("#form_1").hide();
     $("#form_2").hide();    
@@ -120,7 +131,7 @@ $(document).ready(function(){
     });
 //script responsável pela geração de caso de teste no cadastro
 //estou usando multiplas linhas pq a geração simultanea estava causando problemas com o servlet for some reason    
-    $(".casoTeste").on('click',function(e){
+    $(".casoTeste").on('click',function(event){
     	event.preventDefault();
       $(".form-master input[type='text']").not("#dateInput").attr("value","teste");
       $("#dateInput").attr("value","12/12/1066");
@@ -130,6 +141,8 @@ $(document).ready(function(){
       $(".form-master select[name='estado'] option").val(2).prop('selected',true);
       $(".form-master select[name='tipo-trabalho'] option:eq(2)").prop('selected',true);
     });
+    
+    
     
 });
 

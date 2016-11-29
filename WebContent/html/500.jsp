@@ -16,13 +16,12 @@
     </head>
     <body>    
     <header>
-        <div class="container">
-            <div class="section-title">
-                <h3>Ocorreu um erro...</h3>
-            </div>
-        </div>
-    </header>
-    <section class="main-content">
+        		<div class="logo">
+					<img src="${pageContext.request.contextPath}/assets/images/finalTop.jpg" class="img-responsive center-block">
+					<h3 class="text-center">Erro</h3>
+				</div>
+	</header>
+    <section class="main-content error-content">
         <div class="container">
             <div class="error-control text-center">
                 <h3>Algo inesperado aconteceu...</h3>

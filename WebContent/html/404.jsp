@@ -16,13 +16,12 @@
     </head>
     <body>    
     <header>
-        <div class="container">
-            <div class="section-title">
-                <h3>Página não encontrada</h3>
-            </div>
-        </div>
+        		<div class="logo">
+					<img src="${pageContext.request.contextPath}/assets/images/finalTop.jpg" class="img-responsive center-block">
+					<h3 class="text-center">Página não encontrada</h3>
+				</div>
     </header>
-    <section class="main-content">
+    <section class="main-content error-content">
         <div class="container">
             <div class="error-control text-center">
                 <h3>A página requisitada não foi encontrada.</h3>
